@@ -76,7 +76,7 @@
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
           h = checkTime(gotime.getHours())
-          m = checkTime(gotime.getHours())
+          m = checkTime(gotime.getMinutes())
           $('#upc-gotime').text(h+":"+m)
           $('#upc-far').show()
         }
@@ -94,7 +94,7 @@
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
           h = checkTime(gotime.getHours())
-          m = checkTime(gotime.getHours())
+          m = checkTime(gotime.getMinutes())
           $('#ttic-gotime').text(h+":"+m)
           $('#ttic-far').show()
         }
