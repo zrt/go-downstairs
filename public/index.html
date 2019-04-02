@@ -52,6 +52,12 @@
     <span class="site-footer-credits" style="margin-left:50px;">Made by  <a href="https://blog.zrt.io/">Ruotian Zhang</a>.</span>
   </footer> 
   <script type="text/javascript">
+    function checkTime(i)
+    {
+    if (i<10) 
+      {i="0" + i}
+      return i
+    }
     $(function(){
       url = "https://godown.enj0.com/api"
       $.getJSON(url,function(data){
@@ -69,7 +75,9 @@
           var d = new Date()
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
-          $('#upc-gotime').text(gotime.getHours()+":"+gotime.getMinutes())
+          h = checktime(gotime.getHours())
+          m = checktime(gotime.getHours())
+          $('#upc-gotime').text(h+":"+m)
           $('#upc-far').show()
         }
         $('#ttic-min-time').text((data.ttic_min_time/1000/60).toFixed(2))
@@ -85,11 +93,14 @@
           var d = new Date()
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
-          $('#ttic-gotime').text(gotime.getHours()+":"+gotime.getMinutes())
+          h = checktime(gotime.getHours())
+          m = checktime(gotime.getHours())
+          $('#ttic-gotime').text(h+":"+m)
           $('#ttic-far').show()
         }
       })
     })
+
   </script>
 
   </body>
