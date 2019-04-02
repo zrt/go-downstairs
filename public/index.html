@@ -53,7 +53,7 @@
   </footer> 
   <script type="text/javascript">
     $(function(){
-      url = "http://127.0.0.1:20255/api"
+      url = "https://godown.enj0.com/api"
       $.getJSON(url,function(data){
         console.log(data)
         $('#upc-min-time').text((data.upc_min_time/1000/60).toFixed(2))
