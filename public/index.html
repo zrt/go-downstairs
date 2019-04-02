@@ -65,7 +65,7 @@
           $('#upc-gg').show()
         }else{
           est = (data.upc_min_time/1000/60) - 10
-          $('#upc-est').text(est)
+          $('#upc-est').text(est.toFixed(2))
           var d = new Date()
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
@@ -81,7 +81,7 @@
           $('#ttic-gg').show()
         }else{
           est = (data.ttic_min_time/1000/60) - 10
-          $('#ttic-est').text(est)
+          $('#ttic-est').text(est.toFixed(2))
           var d = new Date()
           t=d.getTime() + est*1000*60;
           var gotime=new Date(t) 
