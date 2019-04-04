@@ -68,12 +68,12 @@
         $('#upc-min-time').text((data.upc_min_time/1000/60).toFixed(2))
         $('#upc-avg-time').text((data.upc_avg_time/1000/60).toFixed(2))
         $('#upc-pdist').text((data.upc_pdist).toFixed(6))
-        if((data.upc_min_time/1000/60)>=5 && (data.upc_min_time/1000/60)<=10){
+        if((data.upc_min_time/1000/60)>=4 && (data.upc_min_time/1000/60)<=7){
           $('#upc-ok').show()
-        }else if((data.upc_min_time/1000/60)<5){
+        }else if((data.upc_min_time/1000/60)<4){
           $('#upc-gg').show()
         }else{
-          est = (data.upc_min_time/1000/60) - 10
+          est = (data.upc_min_time/1000/60) - 7
           $('#upc-est').text(est.toFixed(2))
           var d = new Date()
           t=d.getTime() + est*1000*60;
@@ -86,12 +86,12 @@
         $('#ttic-min-time').text((data.ttic_min_time/1000/60).toFixed(2))
         $('#ttic-avg-time').text((data.ttic_avg_time/1000/60).toFixed(2))
         $('#ttic-pdist').text((data.ttic_pdist).toFixed(6))
-        if((data.ttic_min_time/1000/60)>=5 && (data.ttic_min_time/1000/60)<=10){
+        if((data.ttic_min_time/1000/60)>=4 && (data.ttic_min_time/1000/60)<=7){
           $('#ttic-ok').show()
-        }else if((data.ttic_min_time/1000/60)<5){
+        }else if((data.ttic_min_time/1000/60)<4){
           $('#ttic-gg').show()
         }else{
-          est = (data.ttic_min_time/1000/60) - 10
+          est = (data.ttic_min_time/1000/60) - 7
           $('#ttic-est').text(est.toFixed(2))
           var d = new Date()
           t=d.getTime() + est*1000*60;
