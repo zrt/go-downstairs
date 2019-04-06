@@ -23,7 +23,7 @@
       setTimeout(function(){$('#refreshalert').show()}, 1000*60*5);
     </script>
 
-    <section class="main-content">
+    <section id="UPCcontent" class="main-content">
 
       <h2> UPC </h2>
       <p>171路到UPC最少需要<span id="upc-min-time">loading</span>分钟，平均需要<span id="upc-avg-time">loading</span>分钟</p>
@@ -35,7 +35,11 @@
       
     </section>
 
-    <section class="main-content">
+    <section id="UPCcontentUnable" style="display: none;" class="main-content">
+      <h2> UPC 附近没有171 </h2>
+    </section>
+
+    <section id="TTICcontent" class="main-content">
 
       <h2> TTIC </h2>
       <p>171路到TTIC最少需要<span id="ttic-min-time">loading</span>分钟，平均需要<span id="ttic-avg-time">loading</span>分钟</p>
@@ -46,6 +50,9 @@
 
       <small>距离误差<span id="ttic-pdist">loading</span></small>
       
+    </section>
+    <section id="TTICcontentUnable" style="display: none;" class="main-content">
+      <h2> TTIC 附近没有171 </h2>
     </section>
 
 	<footer class="site-footer">
@@ -65,6 +72,10 @@
       url = "https://godown.enj0.com/api"
       $.getJSON(url,function(data){
         console.log(data)
+        if(data.upc_pdist === -1){
+          $('#UPCcontent').hide()
+          $('#UPCcontentUnable').show()
+        }
         $('#upc-min-time').text((data.upc_min_time/1000/60).toFixed(2))
         $('#upc-avg-time').text((data.upc_avg_time/1000/60).toFixed(2))
         $('#upc-pdist').text((data.upc_pdist).toFixed(6))
@@ -82,6 +93,10 @@
           m = checkTime(gotime.getMinutes())
           $('#upc-gotime').text(h+":"+m)
           $('#upc-far').show()
+        }
+        if(data.ttic_pdist === -1){
+          $('#TTICcontent').hide()
+          $('#TTICcontentUnable').show()
         }
         $('#ttic-min-time').text((data.ttic_min_time/1000/60).toFixed(2))
         $('#ttic-avg-time').text((data.ttic_avg_time/1000/60).toFixed(2))
